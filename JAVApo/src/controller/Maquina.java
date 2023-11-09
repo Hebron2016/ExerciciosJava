@@ -3,71 +3,71 @@ package controller;
 import javax.swing.JOptionPane;
 
 public class Maquina {
-	int i = 0;
 	ArmazenaDesenho Carrega = new ArmazenaDesenho();
-	public int player1 () {
-		int p1 =0;
-		while(p1 !=9) {
+	public int player1 (int p1) {
+		int aux = 0; 
+		while(aux !=9) {
 			 p1 = Integer.parseInt(JOptionPane.showInputDialog("Digite: \n1.Pedra\n2.Papel\n3.Tesoura"));
 			switch(p1) {
 			case 1:
-				Carrega.pedra(p1);
+				Carrega.pedra();
+				aux=9;
 			break;
 			case 2:
-				Carrega.papel(p1);
+				Carrega.papel();
+				aux=9;
 			break;
 			
 			case 3:
-				Carrega.tesoura(p1);
+				Carrega.tesoura();
+				aux=9;
 			break;
 			default:
-				JOptionPane.showConfirmDialog(null, "Essa Opção não existe");
-
+				JOptionPane.showConfirmDialog(null, "Essa Opï¿½ï¿½o nï¿½o existe");
 			}
 		}
 		return p1;
 		 
 	}
-	public int player2() {
-			int p2 = 0;
-			p2 = (int) (Math.random()*4);
-			switch(p2) {
-			case 1:
-				Carrega.pedra(p2);
-			break;
-			case 2:
-				Carrega.papel(p2);
-			break;
-			
-			case 3:
-				Carrega.tesoura(p2);
-			break;
-		}
-			return p2;
+	public int player2(int p2) {
+			p2 = (int) ((Math.random()+1)*2);
+			System.out.println("p2 Ã© igual a == "+p2);
+			if(p2 == 1) {
+				Carrega.pedra();
+			}
+			if(p2 == 2) {
+				Carrega.papel();
+			}
+			if(p2 == 3) {
+				Carrega.tesoura();
+			}
+		
+		return p2;
 	}
 
 	
 	public void resultado(int p1 ,int p2) {
+		System.out.println("TÃ¡ dando ruim aqui meu nobre");
 		if (p1 == p2) {
-			JOptionPane.showConfirmDialog(null, "EMPATE");
+			System.out.println("EMPATE");
 		}else {
 			if ((p1 == 1) && (p2 == 2)) {
-				JOptionPane.showConfirmDialog(null, "PERDEU");
+				System.out.println("PERDEU");
 			}
 			if ((p1 == 2) && (p2 == 3)) {
-				JOptionPane.showConfirmDialog(null, "PERDEU");
+				System.out.println("PERDEU");
 			}
 			if ((p1 == 3) && (p2 == 1)) {
-				JOptionPane.showConfirmDialog(null, "PERDEU");
+				System.out.println("PERDEU");
 			}
 			if ((p1 == 1) && (p2 == 3)) {
-				JOptionPane.showConfirmDialog(null, "VENCEU");
+				System.out.println("VENCEU");
 			}
 			if ((p1 == 2) && (p2 == 1)) {
-				JOptionPane.showConfirmDialog(null, "VENCEU");
+				System.out.println("VENCEU");
 			}
 			if ((p1 == 3) && (p2 == 2)) {
-				JOptionPane.showConfirmDialog(null, "VENCEU");
+				System.out.println("VENCEU");
 			}
 		}
 	}
